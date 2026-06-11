@@ -1,0 +1,9 @@
+terminalde python -c "import scapy.all as scapy; scapy.show_interfaces()" yazarak bilgisayarımda aktif olan gerçek Wi-Fi kartımın "Intel(R) Wireless-AC 9560". olduğunu öğrendim ve
+
+python kod.py -t ff:ff:ff:ff:ff:ff -i "Intel(R) Wireless-AC 9560" yazarak kodumu çalıştırdım.
+
+Wireshark da aktif olan internet trafiğimin geçtiği kartı seçtim ve filtreleme kısmına "llc" yazarak çalıştırdığım kodlar sayesinde giden paketleri wireshark ekranında kodumla eş zamanlı olarak izledim.
+
+Kodum, servis erişim noktalarını (DSAP/SSAP) rastgele değiştirerek (fuzzing), ağdaki cihazlara beklemedikleri protokol tanımlayıcıları gönderiyor.
+
+Wireshark üzerinden yakaladığım bu paketler (0x00 ile 0xff arasındaki değerler), cihazların ağ yığınını meşgul ederek potansiyel bir bloklama (DoS) etkisini simüle ediyor.
